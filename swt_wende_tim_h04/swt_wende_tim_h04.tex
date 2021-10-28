@@ -62,7 +62,7 @@
 
             Kommentare zum Diagramm:
             \begin{itemize}
-                \item Die \gqq{Kaufvorgang abbrechen}-Loop in der oberen linken Ecke ist parallel möglich, jedoch ist ein Interrupt zugegebener Maße sinnvoller.
+                \item Die \gqq{Kaufvorgang abbrechen}-Loop in der oberen linken Ecke ist parallel möglich, jedoch ist ein Interrupt zugegebenermaßen sinnvoller.
                     Allerdings war die \texttt{if}-Abfrage bereits fest in meinem Design verankert, also hier als alternative Darstellung ausgegraut angefügt.
                 \item Um in dem Diagramm verschiedene \textbf{Objektknoten} gleichzeitig mitgeben zu können, habe ich den jeweiligen Paketen verschiedene Tags verliehen:
                     \begin{itemize}
@@ -73,11 +73,11 @@
                 \item Mein Automat besitzt ein eigenes Ausgabefach, welches nach Belieben geöffnet und geschlossen werden kann.
                     Somit ist es für den Automaten möglich, quasi jede Münze des Rückgelds einzeln auszugeben, und im späteren Verlauf alle wieder einzusammeln, ohne dass der Kunde etwaige entnehmen kann.
                     Da sich alle physischen Ausgaben des Automaten bis zum absolut sicheren Ende des Kaufvorgangs in diesem Fach befinden, können \gqq{Ticket drucken} und \gqq{Rückgeld ausgeben} parallel ablaufen.
-                \item Um jedoch keine unnötigen Tickets zu drucken, ist es in meinem Automaten nicht möglich, dass die Münzen leer werden.
+                \item Um jedoch keine unnötigen Tickets zu drucken, ist es in meinem Automaten nicht möglich, dass der Münzspeicher leer wird.
                     Wie man in meiner Abgabe zu Woche 3 erkennen kann, wird bei niedrigem Füllstand der Münzen ein Event ausgelöst, sodass ein Mitarbeitender der Administration diesen auffüllen kann.
-                    Dies ist zwar ökologisch, jedoch nicht realitätsnah (aber hey, wir sind ja auch in SWT; ist also normal).
+                    Dies ist zwar ökologisch, jedoch nicht realitätsnah (aber wir sind ja auch in SWT; ist also normal).
                 \item Entschuldigung für die kleine Schrift, jedoch handelt es sich bei der eingefügten Grafik um eine \texttt{.pdf}-Datei.
-                    Fühlen Sie sich also frei nach Belieben reinzuzoomen.
+                    Fühlen Sie sich also freim nach Belieben reinzuzoomen.
             \end{itemize}
 
         \newpage
@@ -86,8 +86,8 @@
             \begin{displayquote}
                 Ein UML-Aktivitätsdiagramm beschreibt einen Pfad des Anwendungsfalldiagramms.
                 Somit wird sich aus der Sicht eines beliebigen Stakeholders ein Anwendungsfall angeschaut und bis zum jeweiligen Ende weitergeführt.
-                Wenn man sich die Szenariobeschreibung genauer anschaut, kann man mit cleverem kombinieren des typischen sowie aller alternativen Abläufe ein Aktivitätsdiagramm erstellen.
-                So spiegeln sich alle Möglichen Ausgangszustände sowohl im Anwendungsfalldiagramm als auch im Aktivitätsdiagramm wider.
+                Wenn man sich die Szenariobeschreibung genauer anschaut, kann man mit cleverem Kombinieren des typischen sowie aller alternativen Abläufe ein Aktivitätsdiagramm erstellen.
+                So spiegeln sich alle möglichen Ausgangszustände sowohl im Anwendungsfalldiagramm als auch im Aktivitätsdiagramm wider.
                 Des Weiteren findet man die benötigten Objekte in den Partitionen (je Stakeholder) und in den Ein- sowie Ausgabeflüssen als \textbf{Objektknoten} wieder.
 
                 \vspace{1em}
@@ -99,7 +99,7 @@
                 \end{figure}
 
                 Alternativ habe ich hier mal einen abzubrechenden Ablauf dargestellt.
-                Der abbruch-Zeitpunkt ist offensichtlich variabel, ließe sich also innerhalb der \textbf{interruptable region} beliebig verschieben
+                Der Abbruch-Zeitpunkt ist offensichtlich variabel, ließe sich also innerhalb der \textbf{interruptable region} beliebig verschieben
 
                 \begin{figure}[ht]
                     \includegraphics[width=\textwidth]{swt_wende_tim_h04_activity_diagram_abort.pdf}
