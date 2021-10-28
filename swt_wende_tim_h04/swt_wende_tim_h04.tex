@@ -7,6 +7,7 @@
 \usepackage{ngerman}
 \usepackage{enumitem}
 \usepackage{csquotes}
+\usepackage{caption}
 
 \newcommand{\gqq}[1]{\glqq{}#1\grqq{}}
 
@@ -22,12 +23,12 @@
 \hypersetup{
     colorlinks=true,
     linktoc=all,
-    linkcolor=blue
+    urlcolor=blue
 }
 
 \author{Tim Wende}
 \date{\today}
-\title{\textbf{Übung 4}}
+\title{\textbf{Hausaufgabe 4}}
 
 \begin{document}
     \maketitle
@@ -46,7 +47,6 @@
             \end{itemize}
             
             Modellieren Sie dabei Geld und Fahrkarten als \textbf{Objektknoten}!
-            
             Hinweise:
             \begin{itemize}[label=◦]
                 \item Der Automat arbeitet nur mit Bargeld.
@@ -55,25 +55,29 @@
                 \item Beachten Sie auch den Fall, wenn der Automat nicht genug Rückgeld geben kann.
             \end{itemize}
 
-            \includegraphics[width=\textwidth]{swt_wende_tim_h04_activity_diagram.pdf}
+            \begin{figure}[ht]
+                \includegraphics[width=\textwidth]{swt_wende_tim_h04_activity_diagram.pdf}
+                \caption{\texttt{activity\_diagram}}
+            \end{figure}
+
             Kommentare zum Diagramm:
             \begin{itemize}
                 \item Die \gqq{Kaufvorgang abbrechen}-Loop in der oberen linken Ecke ist parallel möglich, jedoch ist ein Interrupt zugegebener Maße sinnvoller.
                     Allerdings war die \texttt{if}-Abfrage bereits fest in meinem Design verankert, also hier als alternative Darstellung ausgegraut angefügt.
-                \item Um in dem Diagramm verschiedene \textbf{Objektknoten} gleichzeitig mitgeben zu können, habe ich den jeweiligen Paketen verschiedene Tagvs verliehen:
+                \item Um in dem Diagramm verschiedene \textbf{Objektknoten} gleichzeitig mitgeben zu können, habe ich den jeweiligen Paketen verschiedene Tags verliehen:
                     \begin{itemize}
                         \item E: stellt hier alle Eingaben des Benutzers dar
                         \item A: stellt alle Ausgaben des Automaten dar
                     \end{itemize}
                     Ich bin mir nicht sicher, ob das von UML 2.0 so vorgesehenen ist, jedoch empfand ich es als sinnvoll.
-                \item Mein Automat besitzt ein eigenes Ausgabefach, welches nach Velieben geöffnet und geschlossen werden kann.
+                \item Mein Automat besitzt ein eigenes Ausgabefach, welches nach Belieben geöffnet und geschlossen werden kann.
                     Somit ist es für den Automaten möglich, quasi jede Münze des Rückgelds einzeln auszugeben, und im späteren Verlauf alle wieder einzusammeln, ohne dass der Kunde etwaige entnehmen kann.
                     Da sich alle physischen Ausgaben des Automaten bis zum absolut sicheren Ende des Kaufvorgangs in diesem Fach befinden, können \gqq{Ticket drucken} und \gqq{Rückgeld ausgeben} parallel ablaufen.
                 \item Um jedoch keine unnötigen Tickets zu drucken, ist es in meinem Automaten nicht möglich, dass die Münzen leer werden.
                     Wie man in meiner Abgabe zu Woche 3 erkennen kann, wird bei niedrigem Füllstand der Münzen ein Event ausgelöst, sodass ein Mitarbeitender der Administration diesen auffüllen kann.
                     Dies ist zwar ökologisch, jedoch nicht realitätsnah (aber hey, wir sind ja auch in SWT; ist also normal).
-                \item Entschuldigung für die kleine Schrift, jedoch handelt es sich um eine \texttt{.pdf}-Datei.
-                    Fühlen Sie sich frei nach Belieben reinzuzoomen.
+                \item Entschuldigung für die kleine Schrift, jedoch handelt es sich bei der eingefügten Grafik um eine \texttt{.pdf}-Datei.
+                    Fühlen Sie sich also frei nach Belieben reinzuzoomen.
             \end{itemize}
 
         \newpage
@@ -84,25 +88,57 @@
                 Somit wird sich aus der Sicht eines beliebigen Stakeholders ein Anwendungsfall angeschaut und bis zum jeweiligen Ende weitergeführt.
                 Wenn man sich die Szenariobeschreibung genauer anschaut, kann man mit cleverem kombinieren des typischen sowie aller alternativen Abläufe ein Aktivitätsdiagramm erstellen.
                 So spiegeln sich alle Möglichen Ausgangszustände sowohl im Anwendungsfalldiagramm als auch im Aktivitätsdiagramm wider.
-                Des Weiteren findet man die benötigten Stakeholder in den Partitionen und Ein- sowie Ausgabe als \textbf{Objektknoten} wieder.
+                Des Weiteren findet man die benötigten Objekte in den Partitionen (je Stakeholder) und in den Ein- sowie Ausgabeflüssen als \textbf{Objektknoten} wieder.
 
                 \vspace{1em}
                 Schaut man sich beispielsweise den Anwendungsfall \gqq{Fahrkarte kaufen} an, sieht man im Aktivitätsdiagramm relativ schnell den typischen Ablauf:
                 
-                \vspace{1em}
-                \includegraphics[width=0.95\textwidth]{swt_wende_tim_h04_activity_diagram_typical.pdf}
-                \vspace{1em}
+                \begin{figure}[ht]
+                    \includegraphics[width=\textwidth]{swt_wende_tim_h04_activity_diagram_typical.pdf}
+                    \caption{\texttt{activity\_diagram\_typical}}
+                \end{figure}
 
                 Alternativ habe ich hier mal einen abzubrechenden Ablauf dargestellt.
                 Der abbruch-Zeitpunkt ist offensichtlich variabel, ließe sich also innerhalb der \textbf{interruptable region} beliebig verschieben
 
-                \vspace{1em}
-                \includegraphics[width=0.95\textwidth]{swt_wende_tim_h04_activity_diagram_abort.pdf}
+                \begin{figure}[ht]
+                    \includegraphics[width=\textwidth]{swt_wende_tim_h04_activity_diagram_abort.pdf}
+                    \caption{\texttt{activity\_diagram\_abort}}
+                \end{figure}
             \end{displayquote}
 
     \end{enumerate}
     
     \newpage
     \section{Klassendiagramm \& Objektdiagramm}
+    Aus einer Protokoll-Notiz sind folgende Informationen festgehalten:\\
+    Ein \textbf{Reisender} kann eine \textbf{Einzelfahrkarte} zu einem bestimmten \underline{Tarif (als Zeichenkette)} und einen \underline{Preis (EUR)} \emph{erwerben}.
+    Diese Fahrkarte \emph{legitimiert} den Reisenden zur \emph{Nutzung} einer bestimmten \textbf{Strecke}, die zwei \textbf{Stationen} miteinander \emph{verbindet}.
+    Die Strecke \emph{kennt} dabei das Ausgangs- und Zielgleis.
+    Die Station ist über den \underline{Stationsnamen} eindeutig gekennzeichnet, der Reisende über seinen \underline{Namen}.
 
+    \begin{enumerate}[label=\alph*.]
+        \item Erstellen Sie ein fachliches Klassendiagramm.
+            Identifitzieren Sie hierzu die Klassen, deren Beziehungen und die Attribute mit Datentypen.
+            Modellieren Sie noch keine Methoden (Anm. d.Verf.: \gqq{:(})
+            Achten Sie auf die Multiplizitäten und Assoziationen.
+            Alle Assoziationen sollen einen Namen und eine Leserichtung aufweisen.
+
+            \begin{figure}[ht]
+                \includegraphics[width=\textwidth]{swt_wende_tim_h04_class_diagram.pdf}
+                \caption{\texttt{class\_diagram}}
+            \end{figure}
+            \begin{center}
+                \emph{* Aus der Aufgabenstellung bekannt (Rest aus h03 übernommen)}
+            \end{center}
+            
+        \item Erstellen Sie auch ein passendes Objektdiagramm, das folgenden Sachverhalt beschreibt:\\
+            Die Kundin Frau Müller fährt für 17.50€ mit dem Gute-Nacht-Tarif von Aachen (Gleis 7) nach Köln Hbf (Gleis 8)\\
+            Hinweis: Sie brauchen im Objektdiagramm keine Datentypen, Multiplizitäten, Leserichtungen und Assoziationsnamen zu modellieren.
+
+            \begin{figure}[ht]
+                \includegraphics[width=\textwidth]{swt_wende_tim_h04_object_diagram.pdf}
+                \caption{\texttt{object\_diagram}}
+            \end{figure}
+    \end{enumerate}
 \end{document}
