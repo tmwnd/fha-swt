@@ -1,0 +1,131 @@
+\documentclass{article}
+\usepackage[a4paper, margin=5em]{geometry}
+\usepackage{ngerman}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{parskip}
+
+\newcommand{\gqq}[1]{\glqq{}#1\grqq{}}
+
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\fancyfoot{}
+
+\lfoot{}
+\cfoot{Seite \thepage\ / \pageref*{LastPage}}
+\rfoot{}
+
+\author{Tim Wende}
+\date{\today}
+\title{\textbf{Hausaufgabe 4}}
+
+\begin{document}
+    \maketitle
+
+    \newpage
+    \section{Softwarekrise}
+    Die Softwarekrise wurde als das Problem eingeführt, das mit Softwaretechnik gelöst werden soll.
+    Auch wenn der Begriff aus den 60er Jahren stammt, so ist er auch heute noch anwendbar.
+
+    \begin{enumerate}[label=\alph*.]
+        \item Wählen Sie einen charakteristischen Aspekt der Softwarekrise aus der Vorlesung (oder externen Quellen) und erläutern Sie ihn in eigenen Worten.
+            Zwei Sätze genügen.
+            
+            Komplexe, nicht mathematisch beschreibbare Programme für “einfache“ Aufgaben:\\
+            Auf Grund starken Veränderungen im Produktivsystem im Vergleich zu Testumgebungen müssen unendlich viele mögliche Sonderfälle beim Erstellen von Software betrachtet werden.
+            Dadurch werden selbst kleinst-Programme derart aufgeblasen, dass sie deutlich komplexer sind, als sie eigentlich sein müssten.
+            Beispielsweise, wenn verschiedene Betriebsysteme in config files berücksichtigt werden müssen (Beim entpacken von \texttt{.zip}, \texttt{.tar} etc).
+        \item Die Charakterisierung der Softwarekrise spricht verschiedene Ebenen an.
+            Erläutern Sie die Problematik bzgl. \textbf{Qualitätssicherung} und \textbf{Ökonomie} (Entwicklungsaufwand)
+            
+            Die momentane reine Entwicklungszeit von Programmen ist nur ein Bruchteil des benötigten Arbeitsaufwands.
+            Hinzu kommen komplexe, zeitintensive Tests sowie andauernde Betreuung dieser Programme.
+            Vor allem die Betreuung auf unbestimmte Zeit kostet Zeit sowie Humankapital.
+            Als alternative kann jegliche Software für verschiede Systeme immer wieder neu programmiert werden.
+            Dies ist jedoch weder ökonomisch, noch Sinnvoll im Bezug auf Wirtschaftlichkeit der Unternehmen.
+            Unter Berücksichtigung dieser Punkte sollte jedoch nicht die Qualität der Produkte leiden.
+            Diese sollen weiterhin in Design, Funktionalität sowie Wartbarkeit die Anforderungen erfüllen.
+        \item Nennen Sie eine Erfahrung, die die Auffassung bestärkt oder widerlegt, dass die Softwarekrise noch anhält.
+            
+            WINDOWS XP SERVER AN DER RWTH!
+            Auf Grund veralteter Software und mangelnder Kompatibilität zu zugehörigen Produkten aus diesem Jahrtausend, zieht diese Software die Qualität und Upgrade-Bereitschaft anderer Programme runter.
+            So wird mittelalterliche Software, meist auf virtualisierten Rechnern, weiterhin zur Verfügung gestellt und dient als einfacher Einstieg, wenn man solch einem Unternehmen z.B. durch Schadcode schaden möchte.
+    \end{enumerate}
+
+    \newpage
+    \section{Charakterisierung Softwaretechnik}
+    In der Vorlesung wurde eine zusammenfassende Definition von Softwaretechnik vorgestellt.
+
+    \begin{enumerate}[label=\alph*.]
+        \item Welche softwaretechnischen Mittel werden in Softwareprojekten eingesetzt?\\
+               
+            \gqq{Zielorientierte Bereitstellung und systematische Verwendung von Prinzipien, Methoden und Werkzeugen für die arbeitsteilige, ingenieurmäßige Entwicklung und Anwendung von umfangreichen Softwaresystemen.}\\
+            \emph{– Lit.: Balzert, S. 36}
+            \subsection*{Zu den Kernprozessen von Softwaretechnik gehören:}
+            \begin{enumerate}[label=\arabic*.]
+                \item \textbf{Planung}\\
+                    Anforderungsanalyse, Lastenheft, Pflichtenheft, Aufwandsschätzung, Vorgehensmodell
+                \item \textbf{Analyse}\\
+                    Auswertung, Mock-Up, Prozessanalyse, Systemanalyse, SA, OOA
+                \item \textbf{Entwurf}\\
+                    Softwarearchitektur, SD, OOD, FMC
+                \item \textbf{Programmierung}\\
+                    Normierte Prog., Strukturierte Prog., OOP, Funktionale Prog.
+                \item \textbf{Validierung und Verifikation}\\
+                    Modultests, Integrationstests, Systemtests, Akzeptanztests
+            \end{enumerate}
+            \subsection*{Zu den Unterstützungsprozesse von Softwaretechnik gehören:}
+            \begin{enumerate}[label=\arabic*.]
+                \setcounter{enumii}{5}
+                \item \textbf{Anforderungsmanagement}
+                \item \textbf{Projektmanagement}\\
+                    Risikomanagement, Projektplanung, Projektverfolgung, Lieferantenvereinbarungen
+                \item \textbf{Qualitätsmanagement}\\
+                    SPICE, Incident Management, Problemmanagement, Softwaremetrik, statische Analyse
+                \item \textbf{Konfigurationsmanagement}\\
+                    Versionsverwaltung, Änderungsmanagement, Releasemanagement, Releasemanagement, ITIL
+                \item \textbf{Softwareeinführung}
+                \item \textbf{Dokumentation}\\
+                    Technische Dokumentation, Softwaredokumentation, Bedienungsdokumentation
+            \end{enumerate}
+        \item Welche Eigenschaften von Software-Produkten sollen dadurch erreicht werden?
+            
+            Durch exakte Planung, daraus resultierender Konzepte und genauer Betrachtung der Anforderungen sollen Eigenschaften der Qualität verbessert werden.
+            Des Weiteren sollen durch anschließende Tests die Anzahl an möglichen Fehlern (falls möglich auf 0 \emph{[Spoiler-Alarm, ist nie möglich]}) gesenkt werden.
+            So soll an den Käufer ein vollständiges, den Anforderungen entsprechendes, möglichst fehlerfreies, effizientes, wartbares und zuverlässiges Produkt geliefert werden.
+        \item Wodurch unterscheidet sich Softwaretechnik damit von handwerklich ordentlichem Programmieren?
+            
+            Stumpf gesagt wirkt sich die korrekte Anwendung sinnvoller Softwaretechnik auf die Planung von Software aus.
+            So wird sich vor dem Programmieren bei SWT Gedanken über mögliche Fehlerquellen gemacht, und bei dem handwerklich ordentlichen Programmieren erst im Fehlerfall.
+            Somit ist das stumpfe Programmieren ein kleiner Teilbereich von Softwaretechnik, verpackt mit Planung, Konzeptionierung, sowie anschließender Evaluierung.
+    \end{enumerate}
+
+    \newpage
+    \section{Git}
+    Im Praktikum wurde das Versionsverwaltungstool Git vorgestellt.
+    Beantworten Sie die folgenden Aufgaben:
+    \begin{enumerate}[label=\alph*.]
+        \item Was sind die Vorteile bei der Verwendung von Git im Gegensatz zum Arbeiten ohne Versionsverwaltungstools?
+            
+            Bei eventuell auftretenden Fehlern oder ungewollten \gqq{Features} kann auf eine ältere Version des Codes zurückgespielt werden.
+            Des Weiteren kann man sich ältere Versionsstände anschauen, sowie Updates genauer inspizieren.
+            So sieht man bei einem sogenannten \texttt{commit} meist einen beschreibenden Updategrund und kann im Fehlerfall den schuldigen identifizieren.
+        \item Wie unterscheidet sich Git von einem zentralisierten VCS wie zum Beispiel Subversion und erläutern Sie die Vorteile, die sich aus diesen Unterschieden ergeben?
+
+            Git funktioniert ebenfalls lokal auf dem eigenen System.
+            Des Weiteren ist git schneller und das Zusammenfügen verschiedener Branches ist Benutzerfreundlicher.
+        \item Nehmen Sie an, Sie arbeiten an einem Softwareprojekt mit vorhandenen Commits. Sie schreiben Code für eine bereits existierende Klasse und stellen im Nachhinein fest, dass Ihre Änderungen das Problem nicht lösen.
+            Wie lassen sich mit Git Ihre getätigten Änderungen rückgängig machen? Unterscheiden Sie dabei zwischen:
+            \begin{itemize}[label=◦]
+                \item noch nicht geadded\\
+                    \texttt{strg+z}
+                \item schon geadded\\
+                    \texttt{git checkout}
+                \item schon commitet\\
+                    \texttt{git reset}
+            \end{itemize}
+    \end{enumerate}
+\end{document}
