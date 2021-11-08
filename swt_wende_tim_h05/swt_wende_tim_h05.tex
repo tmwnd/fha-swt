@@ -52,10 +52,14 @@
         \item Auf Grund verschiedener Quellen im Internet habe ich es mal gewagt \texttt{<<extends>>} zu nutzen.
             Sollte dies nicht erlaubt sein, könnte man den Herd einmalig am Anfang einschalten.
             Jedoch hat der jeweilige Nutzer, sollte er beim ersten Pfannkuchen bemerken, dass ihm Zutaten fehlen, den Herd umsonst eingeschaltet.
-        \item Ich habe mal die Abfragen in die Rauten, anstatt an die Pfeile daneben geschrieben.
+        \item Ich habe mal die Abfragen in die Rauten, anstatt an die Pfeile, daneben geschrieben.
             In neueren Versionen von UML ist dies erlaubt, sollte dies hier nicht der Fall sein, verzeihen Sie mir bitte diesen gestalterischen Fauxpas.
             Dies dient zur Verbesserung der Übersichtlichkeit.
         \item Zusätzlich habe ich das Diagramm in zwei Hälften aufgeteilt.
             Diese befinden sich natürlich ursprünglich untereinander, jedoch war mir hier das Format 1:20 zu unschön.
+        \item Letztendlich habe ich mich dazu entschlossen alle Objekte als Objektknoten von außen zuzuführen.
+            Diese werden einmalig initial an der jeweiligen Aktivität versendet, und am Ziel (hier nicht dargestellt: \gqq{pfannkuchen\_essen}) empfangen.
+            Insgesamt handhabe ich das Diagramm eher wie ein Subflow, als wie eine eigenständige Aktivität.
+            Die \gqq{Oberaktivität} könnte \texttt{pfannkuchen} sein, welche \texttt{zutaten\_kaufen}, \texttt{pfannkuchen\_backen} \& \texttt{pfannkuchen\_essen} enthält.
     \end{itemize}
 \end{document}
