@@ -4,10 +4,13 @@
 \usepackage{lastpage}
 \usepackage{graphicx}
 \usepackage{hyperref}
-\usepackage{ngerman}
+%\usepackage{ngerman}
+\usepackage{babel}
 \usepackage{enumitem}
 \usepackage{csquotes}
 \usepackage{caption}
+\usepackage{fancyvrb}
+\usepackage{minted}
 
 \newcommand{\gqq}[1]{\glqq{}#1\grqq{}}
 
@@ -115,10 +118,10 @@
     \begin{enumerate}
         \item Beschreiben Sie in eigenen Worten das Prinzip der Kohäsion und Kopplung in der Implementierung von Software-Projekten.
 
-            Die Bindung verschiedener Objekte (Klassen/ Methoden/ ganzen Modulen/ \ldots), welche durch gegenseitige Methodenaufrufe oder Referenzen entsteht, wird Kopplung genannt.
+            Die Bindung verschiedener Objekte (Klassen/ Methoden/ ganzen Modulen/ \ldots), entsteht durch gegenseitige Methodenaufrufe oder Referenzen.
             Die Dichte bzw. Anzahl dieser Bindungen wird durch das Maß der Kohäsion beschrieben.
-            Dieses Maß beschreibt den logischen Zusammenhang der jeweiligen Kopplung.
-            So geht das eine nie ohne das andere einher.
+            Dieses Maß beschreibt den logischen Zusammenhang der jeweiligen Objekte.
+            Die Bindung verschiedener Pakete wird Kopplung genannt.
             Man möchte die paketintern Kohäsion der Bindung also so hoch wie möglich halten, und die Bindung der verschiedenen Pakete so gering wie möglich.
         
         \item Warum sind hohe Kohäsion und lose Kopplung der niedrigen Kohäsion und enger Kopplung vorzuziehen?
@@ -135,4 +138,142 @@
                 \caption{\texttt{class\_diagram\_example}}
             \end{figure}
     \end{enumerate}
-\end{document}
+
+    \newpage
+    \section*{Klassendiagramm Implizierungen}
+
+    Gegeben sei folgendes UML-Klassendiagramm mit ähnlichem Kontext wie aus der ersten Aufgabe. 
+
+    Zusätzliche Annahmen:
+    \begin{itemize}
+        \item Jede Person hat nur einen Personalausweis.
+            Wir vernachlässigen den Fakt, dass man diesen verlegen oder verlieren kann.
+        \item Studierende können sich bei der Bibliothek auf Wartelisten für Bücher setzen lassen
+        Die Bibliothek benachrichtigt die Studierenden nach dem FIFO-Prinzip, wenn das Buch verfügbar ist
+        Das soll sich in der verwendeten Datenstruktur für die Assoziation zwischen Bibliothek und Studierender in der Bibliothek widerspiegeln.
+    \end{itemize}
+
+    Hinweis: Achten Sie darauf, dass die Multiplizitäten vom Code auch abgebildet werden! Zum Beispiel, dass eine Person keine Null-Referenz auf einen Personalausweis haben darf!
+    
+    \begin{figure}[ht]
+        \centering
+        \includegraphics[width=0.4\textwidth]{class_diagram.jpg}
+        \caption{\texttt{class\_diagram}}
+    \end{figure}
+
+    Tragen Sie in die vorgegebenen Java-Klassen, die Umsetzung der Assoziationen mit korrekter Multiplizität ein. An welchen Stellen ergibt es Sinn, die Assoziationen weiter über (unique, ordered) einzuschränken?
+    
+    Hier mein Klassendiagramm, welches nach dem Javacode erstellt wurde:
+
+    \begin{figure}[ht]
+        \centering
+        \includegraphics[width=0.75\textwidth]{swt_wende_tim_h07_class_diagram_after.pdf}
+        \caption{\texttt{class\_diagram\_after}}
+    \end{figure}
+
+    \newpage
+    Zuerst gebe ich aus debugging Zwecken alle erstellten Studierenden aus.
+    Dann folgt das Erstellen, sowie initiales nutzen der Bibliothek.
+    Und zu guter letzt werden verschiedene Methoden ausprobiert.
+
+    Um den Code zu besser verstehen zu können, werde ich diesen nun Stück für Stück präsentieren.
+    Hierzu verwende ich folgende Reihenfolge:
+    
+    \begin{enumerate}
+        \item Output der Testklasse
+        \item Klasse Test inklusive \texttt{main Methode}
+        \item Klasse Studiengang
+        \item Klasse Person
+        \item Klasse Personalausweis
+        \item Klasse Studierender
+        \item Klasse Bibliothek
+        \item Klasse Buch
+    \end{enumerate}
+
+    Der folgende Output wird von der \texttt{Test Klasse} erzeugt:
+    
+    \VerbatimInput{out.txt}
+
+    \newpage
+    Schauen wir uns dazu erstmal die \texttt{Test Klasse} an:
+    \inputminted{java}{Test.java}
+
+    \newpage
+    In der ersten Zeile der \texttt{main Methode} finden wir:
+    \begin{minted}{java}
+        Studiengang matse = new Studiengang("Angewandte Mathematik und Informatik");
+    \end{minted}
+
+    Hier wird ein Objekt der Klasse Studiengang erstellt.
+    Dieses bekommt eine Bezeichnung; hier beispielsweise \gqq{Angewandte Mathematik und Informatik}; übergeben.
+    Die dazuehörige Klasse sieht wie folgt aus:
+
+    \inputminted{java}{Studiengang.java}
+
+    \newpage
+    Schauen wir uns die \texttt{main Methode} oder \texttt{addTeilnehmender} aus \texttt{Studiengang.java} an, bemerken wir, dass wir einen Studierenden benötigen:
+
+    \begin{minted}{java}
+       Studierender tim = new Studierender("Tim Wende", 3281514, new Personalausweis(), matse);
+    \end{minted}
+
+    Der Studierende benötigt einen Namen; hier \gqq{Tim Wende}; eine Matrikelnummer, einen Personalausweis, sowie einen ersten Studiengang; hier \gqq{matse};
+    Zusätzlich benötigen wir erstmal die Abstrakte Klasse \texttt{Person}, von welcher \texttt{Studierender} erben wird.
+
+    \inputminted{java}{Person.java}
+
+    \newpage
+    Hier sehen wir eine kleine Hilfsklasse \texttt{Personalausweis}.
+    Diese wird ausschließlich von der Klasse \texttt{Person} genutzt:
+
+    \inputminted{java}{Personalausweis.java}
+
+    \newpage
+    Nun, wie versprochen \texttt{Studierender.java}:
+
+    \inputminted{java}{Studierender.java}
+
+    \newpage
+    Als nächstes wird in der \texttt{main Methode} eine Bibliothek erstellt.
+    Diese trägt den kreativen Namen \gqq{RWTH Bib}:
+    
+    \begin{minted}{java}
+        Bibliothek rwthbib = new Bibliothek("RWTH Bib");
+    \end{minted}
+
+    Da die Klasse \texttt{Bibliothek} als \gqq{Proxy}-Klasse gebraucht wird (siehe 2.2), leitet sie mehrere Funktionen \gqq{dumm} weiter. Diese werden also meistens auf dem Objekt selber ausgeführt:
+
+    \inputminted{java}{Bibliothek.java}
+
+    \newpage
+    Nun erstellen wir ein paar Bücher und fügen sie unserer Bibliothek hinzu.
+    Als Buchnamen mussten alte Hausaufgaben von mir herhalten.
+    Teilweise werden die Bücher direkt vorgemerkt.
+
+    \begin{minted}{java}
+        rwthbib.addBuch(new Buch("swt_wende_tim_h01.pdf"));
+    \end{minted}
+
+    \inputminted{java}{Buch.java}
+
+    Diese werden nun teilweise vorgemerkt:
+    
+    \begin{minted}{java}
+		rwthbib.addWartender(h05, tim);
+    \end{minted}
+
+    ausgeliehen:
+    
+    \begin{minted}{java}
+		rwthbib.ausleihen(h05, tim); // gesperrt
+    \end{minted}
+
+    oder zurückgegeben:
+    
+    \begin{minted}{java}
+		rwthbib.zurueckgeben(h05); // entsperrt
+    \end{minted}
+
+    Die zugehörigen Ausgaben sind in \texttt{out.txt} zu finden.
+
+    \end{document}

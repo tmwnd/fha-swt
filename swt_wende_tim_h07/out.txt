@@ -1,0 +1,98 @@
++-------------------------------------------------------------------------+
+|                                Tim Wende                                |
+|                                                                         |
+|  Name:              Tim Wende                                           |
+|  Personalausweis:   1                                                   |
+|  Matrikelnummer:    3281514                                             |
+|                                                                         |
+|  Studiengänge:                                                          |
+|  +-------------------------------------------------------------------+  |
+|  | Bezeichnung:         Angewandte Mathematik und Informatik         |  |
+|  | Teilnehmende:        Tim Wende, Paddel                            |  |
+|  | Anzahl Teilnehmende: 2                                            |  |
+|  |                                                                   |  |
+|  | Bezeichnung:         Softwaretechnik                              |  |
+|  | Teilnehmende:        Tim Wende                                    |  |
+|  | Anzahl Teilnehmende: 1                                            |  |
+|  +-------------------------------------------------------------------+  |
++-------------------------------------------------------------------------+
+
++-------------------------------------------------------------------------+
+|                                 Paddel                                  |
+|                                                                         |
+|  Name:              Paddel                                              |
+|  Personalausweis:   2                                                   |
+|  Matrikelnummer:    1234567                                             |
+|                                                                         |
+|  Studiengänge:                                                          |
+|  +-------------------------------------------------------------------+  |
+|  | Bezeichnung:         Angewandte Mathematik und Informatik         |  |
+|  | Teilnehmende:        Tim Wende, Paddel                            |  |
+|  | Anzahl Teilnehmende: 2                                            |  |
+|  +-------------------------------------------------------------------+  |
++-------------------------------------------------------------------------+
+
+
+
+
+
+
+
+
+
+Tim Wende hat sich swt_wende_tim_h05.pdf vorgemerkt
+Paddel hat sich swt_wende_tim_h05.pdf vorgemerkt
+Paddel hat sich swt_wende_tim_h06.pdf vorgemerkt
+
++-------------------------------------------------------------------------+
+|                                RWTH Bib                                 |
+|                                                                         |
+|  Bezeichnung: RWTH Bib                                                  |
+|                                                                         |
+|  Bücher:                                                                |
+|  +-------------------------------------------------------------------+  |
+|  | Bezeichnung:     swt_wende_tim_h01.pdf                            |  |
+|  |                                                                   |  |
+|  | Bezeichnung:     swt_wende_tim_h02.pdf                            |  |
+|  |                                                                   |  |
+|  | Bezeichnung:     swt_wende_tim_h03.pdf                            |  |
+|  |                                                                   |  |
+|  | Bezeichnung:     swt_wende_tim_h04.pdf                            |  |
+|  |                                                                   |  |
+|  | Bezeichnung:     swt_wende_tim_h05.pdf                            |  |
+|  | Wartende:        Tim Wende, Paddel                                |  |
+|  | Anzahl Wartende: 2                                                |  |
+|  |                                                                   |  |
+|  | Bezeichnung:     swt_wende_tim_h06.pdf                            |  |
+|  | Wartende:        Paddel                                           |  |
+|  | Anzahl Wartende: 1                                                |  |
+|  +-------------------------------------------------------------------+  |
++-------------------------------------------------------------------------+
+
+Tim Wende hat swt_wende_tim_h05.pdf ausgeliehen
+swt_wende_tim_h05.pdf wurde zurückgegeben
+@Paddel: swt_wende_tim_h05.pdf ist verfügbar
+Paddel hat swt_wende_tim_h05.pdf ausgeliehen
+
++-------------------------------------------------------------------------+
+|                                RWTH Bib                                 |
+|                                                                         |
+|  Bezeichnung: RWTH Bib                                                  |
+|                                                                         |
+|  Bücher:                                                                |
+|  +-------------------------------------------------------------------+  |
+|  | Bezeichnung:     swt_wende_tim_h01.pdf                            |  |
+|  |                                                                   |  |
+|  | Bezeichnung:     swt_wende_tim_h02.pdf                            |  |
+|  |                                                                   |  |
+|  | Bezeichnung:     swt_wende_tim_h03.pdf                            |  |
+|  |                                                                   |  |
+|  | Bezeichnung:     swt_wende_tim_h04.pdf                            |  |
+|  |                                                                   |  |
+|  | Bezeichnung:     swt_wende_tim_h05.pdf                            |  |
+|  |                                                                   |  |
+|  | Bezeichnung:     swt_wende_tim_h06.pdf                            |  |
+|  | Wartende:        Paddel                                           |  |
+|  | Anzahl Wartende: 1                                                |  |
+|  +-------------------------------------------------------------------+  |
++-------------------------------------------------------------------------+
