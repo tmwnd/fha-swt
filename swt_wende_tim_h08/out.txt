@@ -1,0 +1,119 @@
+Was wollen Sie?
+ (0) Programm beenden
+ (1) neuen Kunden erstellen
+ (2) neuen Nachrichtenkanal erstellen
+ (3) Kunde abonniert Nachrichtenkanal
+ (4) Nachrichtenkanalstatistik
+ (5) Nachricht eines Nachrichtenkanals verändern
+1
+Name des/der KundIn: Tim
++-------------------------------------------------------------------------+
+|  Name:    Tim                                                           |
+|  Kapital: 5€                                                            |
++-------------------------------------------------------------------------+
+Was wollen Sie?
+ (0) Programm beenden
+ (1) neuen Kunden erstellen
+ (2) neuen Nachrichtenkanal erstellen
+ (3) Kunde abonniert Nachrichtenkanal
+ (4) Nachrichtenkanalstatistik
+ (5) Nachricht eines Nachrichtenkanals verändern
+2
+Bezeichnung des Nachrichtenkanals: heise.de/newsticker
++-------------------------------------------------------------------------+
+|  Bezeichnung: heise.de/newsticker                                       |
+|  Content    : null                                                      |
++-------------------------------------------------------------------------+
+Was wollen Sie?
+ (0) Programm beenden
+ (1) neuen Kunden erstellen
+ (2) neuen Nachrichtenkanal erstellen
+ (3) Kunde abonniert Nachrichtenkanal
+ (4) Nachrichtenkanalstatistik
+ (5) Nachricht eines Nachrichtenkanals verändern
+3
+Welcher Nachrichtenkanal?
+Es wurde automatisch heise.de/newsticker gewählt
+Welche/r KundIn?
+Es wurde automatisch Tim gewählt
+Nach wie vielen Nachrichten soll gezahlt werden?
+1: 1
+2: 3
+2
++-------------------------------------------------------------------------+
+|  KundIN:         Tim                                                    |
+|  Abrechnungsart: Postpaid (alle 3 Nachrichten)                          |
++-------------------------------------------------------------------------+
+Was wollen Sie?
+ (0) Programm beenden
+ (1) neuen Kunden erstellen
+ (2) neuen Nachrichtenkanal erstellen
+ (3) Kunde abonniert Nachrichtenkanal
+ (4) Nachrichtenkanalstatistik
+ (5) Nachricht eines Nachrichtenkanals verändern
+5
+Neue Nachricht: Welcher Nachrichtenkanal?
+Es wurde automatisch heise.de/newsticker gewählt
+UPDATE 1
+#heise.de/newsticker update: UPDATE 1
+    @Tim: 0
+Was wollen Sie?
+ (0) Programm beenden
+ (1) neuen Kunden erstellen
+ (2) neuen Nachrichtenkanal erstellen
+ (3) Kunde abonniert Nachrichtenkanal
+ (4) Nachrichtenkanalstatistik
+ (5) Nachricht eines Nachrichtenkanals verändern
+5
+Neue Nachricht: Welcher Nachrichtenkanal?
+Es wurde automatisch heise.de/newsticker gewählt
+UPDATE 2
+#heise.de/newsticker update: UPDATE 2
+    @Tim: 0
+Was wollen Sie?
+ (0) Programm beenden
+ (1) neuen Kunden erstellen
+ (2) neuen Nachrichtenkanal erstellen
+ (3) Kunde abonniert Nachrichtenkanal
+ (4) Nachrichtenkanalstatistik
+ (5) Nachricht eines Nachrichtenkanals verändern
+5
+Neue Nachricht: Welcher Nachrichtenkanal?
+Es wurde automatisch heise.de/newsticker gewählt
+UPDATE 3
+#heise.de/newsticker update: UPDATE 3
+    @Tim: -3
+Was wollen Sie?
+ (0) Programm beenden
+ (1) neuen Kunden erstellen
+ (2) neuen Nachrichtenkanal erstellen
+ (3) Kunde abonniert Nachrichtenkanal
+ (4) Nachrichtenkanalstatistik
+ (5) Nachricht eines Nachrichtenkanals verändern
+2
+Bezeichnung des Nachrichtenkanals: ili.fh-aachen.de
++-------------------------------------------------------------------------+
+|  Bezeichnung: ili.fh-aachen.de                                          |
+|  Content    : null                                                      |
++-------------------------------------------------------------------------+
+Was wollen Sie?
+ (0) Programm beenden
+ (1) neuen Kunden erstellen
+ (2) neuen Nachrichtenkanal erstellen
+ (3) Kunde abonniert Nachrichtenkanal
+ (4) Nachrichtenkanalstatistik
+ (5) Nachricht eines Nachrichtenkanals verändern
+4
+Welcher Nachrichtenkanal?
+1: heise.de/newsticker
+2: ili.fh-aachen.de
+1
+heise.de/newsticker - 1€/Nachricht - Anzahl der AbonnentInnen: 1
+Was wollen Sie?
+ (0) Programm beenden
+ (1) neuen Kunden erstellen
+ (2) neuen Nachrichtenkanal erstellen
+ (3) Kunde abonniert Nachrichtenkanal
+ (4) Nachrichtenkanalstatistik
+ (5) Nachricht eines Nachrichtenkanals verändern
+0
