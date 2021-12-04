@@ -1,0 +1,22 @@
+Glumanda wurde gefangen
+Glumanda erlernt Kratzer
+Glumanda erlernt Glut
+
+Bisasam wurde gefangen
+Bisasam erlernt Tackle
+
+Schiggy wurde gefangen
+Schiggy erlernt Tackle
+
+Glumanda (Feuer) setzt Kratzer (Normal, 34/35) ein (-20HP)
+Glumanda (Feuer) setzt Glut (Feuer, 24/25) ein (-20HP)
+Bisasam (Pflanze) setzt Tackle (Normal, 34/35) ein (-4HP)
+Schiggy (Wasser) setzt Tackle (Normal, 34/35) ein (-4HP)
+
+Glumanda entwickelt sich zu Glutexo
+
+Glutexo (Feuer) setzt Kratzer (Normal, 33/35) ein (-30HP)
+Glutexo (Feuer) setzt Glut (Feuer, 23/25) ein (-30HP)
+Glutexo (Feuer) setzt Platscher (Normal, 39/40) ein (-0HP)
+Glutexo (Feuer) setzt Platscher (Normal, 38/40) ein (-0HP)
+Glutexo (Feuer) setzt Platscher (Normal, 37/40) ein (-21474835HP)
