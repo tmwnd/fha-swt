@@ -75,7 +75,7 @@ POLITISCH_AKTIV REBELLISCH PROTEGIERT ERGEBEN
                 \item parteilob.wirtschaftslob.wirtschaftslob
 
                     \texttt{AUFSICHTSRAT}\\
-                    alternativ\footnote{Siehe Code (vorab: ungenaue Definition von parallelen inneren Zuständen)}:\\
+                    alternativ\footnote{Siehe Code (vorab: ungenaue Definition von parallelen inneren Zuständen)}\footnote{EDIT: In der Vorlesung von 13.12.2021 wurde bestätigt, dass es sich um die erste Variante handelt. Dementsprechend sei dies bitte bei der Korrektur zu berücksichtigen und meine alternative Möglichkeit zu ignorieren.}:\\
                     \texttt{POLITISCH\_AKTIV KRIECHEND AUFSICHTSRAT}
                 
                 \item parteilob.wirtschaftslob.wirtschaftslob
@@ -170,6 +170,19 @@ public static final State AUFSICHTSRAT = new State("AUFSICHTSRAT", () -> RUHEZUS
                 \item Ich habe mal für jede Methode ein eigenes Interface erstellt, dies hilft mir beim Erstellen der DEFAULT Klassen.
                     Sollte dies nicht gewollt sein, müsste man eigene (private inner) Klassen erstellen.
                     Mehr dazu in der Ersten Anmerkung. 
+
+                \item Wenn der Zustandsautomat keine Transition definiert hat, mit dieser er in einen anderen Zustand übergehen soll, wird ein Fehler geworfen.
+                    Dies kann umgangen werden, indem man die relevanten Zeilen wieder einkommentiert.
+                    Diese sind:
+                    \begin{minted}{java}
+REBELLISCH.withParteiTadel(() -> REBELLISCH);
+                    \end{minted}
+                    [class: ParteiState, method: setStates(), line 18], und
+                    \begin{minted}{java}
+NEUTRAL.withWirtschaftskritik(() -> NEUTRAL);
+                    \end{minted}
+                    [class: WirtschaftsState, method: setStates(), line 12]\\
+                    Durch diese Zeilen zeigt das Objekt quasi auf sich selbst und könnte \texttt{this} zurückgeben.
             \end{itemize}
             
             Eine gute Erklärung zum State-Pattern ist \href{https://www.philipphauer.de/study/se/design-pattern/state.php}{hier} zu finden.
