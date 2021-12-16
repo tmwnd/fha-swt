@@ -1,0 +1,218 @@
+\documentclass{article}
+\usepackage[a4paper, margin=5em]{geometry}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{graphicx}
+\usepackage{hyperref}
+%\usepackage{ngerman}
+\usepackage{babel}
+\usepackage{enumitem}
+\usepackage{csquotes}
+\usepackage{caption}
+\usepackage{fancyvrb}
+\usepackage{minted}
+\usepackage{ulem}
+\usepackage{listings}
+\usepackage{tabularx}
+\usepackage{makecell}
+\usepackage{multirow}
+\usepackage{colortbl}
+\usepackage{xcolor}
+
+\newcommand{\gqq}[1]{\glqq{}#1\grqq{}}
+
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\setlength\parindent{0pt}
+\fancyfoot{}
+
+\lfoot{}
+\cfoot{Seite \thepage\ / \pageref*{LastPage}}
+\rfoot{}
+
+\hypersetup{
+    colorlinks=true,
+    linktoc=all,
+    urlcolor=blue
+}
+
+\author{Tim Wende}
+\date{\today}
+\title{\textbf{Hausaufgabe 11}}
+
+\begin{document}
+    \maketitle
+
+    \section*{Äquivalenzklassen Abschranzbudenbesuch}
+
+    \begin{enumerate}[label=\alph*.]
+        \item Bestimmen Sie die Äquivalenzklassen zur Berechnung folgender Rabatt-Funktion.
+            Beachten Sie dabei auch Grenzwerte, und Sonderfälle.
+            Geben Sie tabellarisch die Eingaben der drei Parameter, das Ergebnis und eine kurze Beschreibung der Äquivalenzklasse an. 
+            Gliedern Sie Ihre Äquivalenzklassen wie folgt:
+            \begin{itemize}
+                \item Regulären Situationen
+                \item Fehlerfälle
+                \item Grenzfälle
+                \item Sonderfälle
+            \end{itemize}
+            Extremwerte können Sie hier außer Acht lassen.
+
+            Grenzfälle können sich auf reguläre Situationen und Fehlerfälle beziehen. Hier darf es Überschneidungen (oder Dopplungen) geben. Bitte geben Sie diese auch unbedingt in den verschiedenen Gruppen an.
+
+            \subsection*{Äquivalenzklassen}
+
+            \begin{tabularx}{\textwidth}{|p{3em}|X|p{7em}|p{5em}|p{7em}|p{5em}|}
+                \hline
+                \cellcolor[gray]{0.75} & \cellcolor[gray]{0.75} & \cellcolor[gray]{0.75} & \multicolumn{3}{c|}{\cellcolor[gray]{0.75} \textbf{Repräsentant}}\\
+                \multirow{-2}{*}{\cellcolor[gray]{0.75} \textbf{ÄK}} & \multirow{-2}{*}{\cellcolor[gray]{0.75} \textbf{Äquivalenzklasse}} & \multirow{-2}{*}{\cellcolor[gray]{0.75} \textbf{Typ}} & \cellcolor[gray]{0.75} geschlecht & \cellcolor[gray]{0.75} alter & \cellcolor[gray]{0.75} istBeamter\\\hline  
+                0 & regulär: & Zulässig & m, w, d & 18, 20, 79 & \textcolor{red}{true}, \textcolor{red}{false} \\
+                & $\mathrm{geschlecht} \in \{m, w, d\} \quad \land$ & & & & \\
+                & $18 \leq \mathrm{alter} \leq 79$ & & & & \\\hline
+                1 & fehler: & Unzulässig & \textcolor{red}{null}, egal & $[-\infty..\infty]$ & egal \\
+                & geschlecht == \textcolor{red}{null} $\quad \lor$ & & & & \\
+                & $17 \geq \mathrm{alter} \quad \lor$ & & & & \\
+                & $\mathrm{alter} \geq 80$ & & & & \\\hline
+            \end{tabularx}
+
+            \subsection*{Unterklassen}
+
+            \[
+                \forall \mathrm{AK}_j : \mathrm{UK}_{j_i} \subseteq \mathrm{AK}_j \quad \land \quad 
+                \bigcup_{u \in \mathrm{UK}_j} u = \mathrm{AK_j} \quad \land \quad 
+                \bigcup_{a \in \mathrm{AK}} a = \Omega
+            \]
+
+            \subsubsection*{Regulärfälle (\texttt{@return \textcolor{orange}{int} $\in \{0.0, 0.05, 0.07, 0.1, 0.12\}$})}
+            
+            \begin{tabularx}{\textwidth}{|p{3em}|p{3em}|X|p{7em}|p{5em}|p{7em}|p{5em}|}
+                \hline
+                \cellcolor[gray]{0.75} & \cellcolor[gray]{0.75} & \cellcolor[gray]{0.75} & \cellcolor[gray]{0.75} & \multicolumn{3}{c|}{\cellcolor[gray]{0.75} \textbf{Repräsentant}}\\
+                \multirow{-2}{*}{\cellcolor[gray]{0.75} \textbf{ÄK}} & \multirow{-2}{*}{\cellcolor[gray]{0.75} \textbf{RF}} & \multirow{-2}{*}{\cellcolor[gray]{0.75} \textbf{Unterklasse}} & \multirow{-2}{*}{\cellcolor[gray]{0.75} \textbf{Typ}} & \cellcolor[gray]{0.75} geschlecht & \cellcolor[gray]{0.75} alter & \cellcolor[gray]{0.75} istBeamter\\\hline  
+                0 & 0 & kein Rabatt & (Zulässig, 0.0) & m, d & [18..79], 20 & \textcolor{red}{false}\\\hline
+                0 & 1 & 5\% Rabatt & (Zulässig, 0.05) & m, d & [18..79], 20 & \textcolor{red}{true}\\\hline
+                0 & 1 & 5\% Rabatt & (Zulässig, 0.05) & w & [30..79], 79 & \textcolor{red}{false}\\\hline
+                0 & 2 & 7\% Rabatt & (Zulässig, 0.07) & w & [18..29], 20 & \textcolor{red}{false}\\\hline
+                0 & 3 & 10\% Rabatt & (Zulässig, 0.1) & w & [30..79], 79 & \textcolor{red}{true}\\\hline
+                0 & 4 & 12\% Rabatt & (Zulässig, 0.12) & w & [18..29], 20 & \textcolor{red}{true}\\\hline
+            \end{tabularx}
+
+            \subsubsection*{Fehlerfälle (\texttt{@throws IllegalArgumentException()})}
+
+            \begin{tabularx}{\textwidth}{|p{3em}|p{3em}|X|p{7em}|p{5em}|p{7em}|p{5em}|}
+                \hline
+                \cellcolor[gray]{0.75} & \cellcolor[gray]{0.75} & \cellcolor[gray]{0.75} & \cellcolor[gray]{0.75} & \multicolumn{3}{c|}{\cellcolor[gray]{0.75} \textbf{Repräsentant}}\\
+                \multirow{-2}{*}{\cellcolor[gray]{0.75} \textbf{ÄK}} & \multirow{-2}{*}{\cellcolor[gray]{0.75} \textbf{FF}} & \multirow{-2}{*}{\cellcolor[gray]{0.75} \textbf{Unterklasse}} & \multirow{-2}{*}{\cellcolor[gray]{0.75} \textbf{Typ}} & \cellcolor[gray]{0.75} geschlecht & \cellcolor[gray]{0.75} alter & \cellcolor[gray]{0.75} istBeamter\\\hline  
+                1 & 0 & alter $\leq$ 17 & Unzulässig & egal & -7, 0, 7, 17 & egal\\\hline
+                1 & 1 & alter $\geq$ 80 & Unzulässig & egal & 80, INT\_MAX & egal\\\hline
+                1 & 2 & geschlecht == \textcolor{red}{null} & Unzulässig & \textcolor{red}{null} & egal & egal\\\hline
+            \end{tabularx}
+
+            \newpage
+
+            \subsection*{Grenzfälle}
+
+            Da es sich bei \texttt{alter} als einziges um eine geordnete sortierbare Menge an Werten handelt, folgt nun die Grenzwertbetrachtung dieses Attributs.
+            Wenn man eine unsortierte Liste von 3, respektive 2, Elementen vorliegen hat, ist eine GW-Betrachtung sinnlos bis hin zu nicht möglich (bzgl. \texttt{geschlecht}).
+            Selbiges gilt bei \texttt{alter}; Hier kann man sich jedoch streiten, ob es sich um zwei Zeichenketten ("true", "false") oder um Zahlwerte (0, 1) handelt.
+            Im zweiten Fall wäre eine GW-Betrachtung möglich, jedoch auf solch einem Intervall nicht aussagekräftig, da jeder vorhandene Wert ein GW wäre.\\
+
+            \begin{tabularx}{\textwidth}{|p{3em}|p{3em}|X|p{5em}|p{7em}|p{5em}|}
+                \hline
+                \cellcolor[gray]{0.75} & \cellcolor[gray]{0.75} & \cellcolor[gray]{0.75} & \multicolumn{3}{c|}{\cellcolor[gray]{0.75} \textbf{Randwerte}}\\
+                \multirow{-2}{*}{\cellcolor[gray]{0.75} \textbf{ÄK}} & \multirow{-2}{*}{\cellcolor[gray]{0.75} \textbf{FF}} & \multirow{-2}{*}{\cellcolor[gray]{0.75} \textbf{Typ}} & \cellcolor[gray]{0.75} geschlecht & \cellcolor[gray]{0.75} alter & \cellcolor[gray]{0.75} istBeamter\\\hline  
+                1 & $0_o$ & Unzulässig & egal & 17 & egal\\\hline
+                $0_u$ & & Zulässig & egal & 18 & egal\\\hline
+                $0_o$ & & Zulässig & egal & 79 & egal\\\hline
+                1 & $1_u$ & Unzulässig & egal & 80 & egal\\\hline
+            \end{tabularx}
+
+            \subsection*{Sonderfälle}
+
+            Da wir in unserem Beispiel keine wirklichen Sonderfälle haben
+            \footnote{
+                Nach meinem Verständnis sind Sonderfälle stark verwandt mit Extremfällen.
+                (\href{https://www.google.com/search?q=sonderfall+extremfall+synonym}{Böse Zungen} behaupten sogar, diese seien Synonyme)
+                Als Sonderfall verstehe ich Äquivalenzklassen, welche in ihrer häufigkeit des Auftretens oder besonderheit der Rückgabe auffallen.
+                So würde man besonders seltene oder häifig auftretende Klassen hier besonders erwähnen.
+                Da dies jedoch nicht der Fall ist, da die Parameter ungefähr gleichverteillt aufteten und das daraus resultierende Ergebnis meist in einem sehr überschaubaren Rahmen liegt, versuche ich mich an dieser Betrachtung unter erschwerten Umständen.
+                Man könnte einen Zusammenhang aus Höhe des Rabattes und größe der Menschengruppe herstellen, die diesen Rabatt erhält, jedoch ist mir hier die Datenlage zu ungenau bzw. zu sporadisch.
+                Sollte dies jedoch das erwünschte Ergebnis sein, unterstelle ich dem Disco-Betreibenden, dass er $\approx$ 50\% aller KundInnen keinen Rabatt und nur einer minimalen Menge an Kunden den Höchstsatz von 12\% Rabatt ermöglicht.
+                Wer hätte dies nur erwartet \ldots
+            }
+            , habe ich die Randwerte der Ausgabe gewählt.
+            Argumentativ könnte man dies als Abfrage begründen, da man als Disco-Besitzender zu hohe Rabatte verhindern möchte, bzw. die Menge an KundInnen erfahren will, welche diesen Höchstsatz an Rabatten bekommen.
+            Hier könnte man ebenfalls einen festen Grenzwert wählen; hier wäre beispielsweise 10\% mMn. ebenfalls möglich.
+            Zusätzlich möchte man keine KundInnen frustrieren, indem man ihnen keine/ zu geringe Rabatte zuordnet.\\
+            
+            \begin{tabularx}{\textwidth}{|p{3em}|p{3em}|X|p{5em}|p{7em}|p{5em}|}
+                \hline
+                \cellcolor[gray]{0.75} & \cellcolor[gray]{0.75} & \cellcolor[gray]{0.75} & \multicolumn{3}{c|}{\cellcolor[gray]{0.75} \textbf{Randwerte}}\\
+                \multirow{-2}{*}{\cellcolor[gray]{0.75} \textbf{ÄK}} & \multirow{-2}{*}{\cellcolor[gray]{0.75} \textbf{RF}} & \multirow{-2}{*}{\cellcolor[gray]{0.75} \textbf{Typ}} & \cellcolor[gray]{0.75} geschlecht & \cellcolor[gray]{0.75} alter & \cellcolor[gray]{0.75} istBeamter\\\hline  
+                0 & 0 & (Zulässig, 0.0) & m, d & [18..79], 20 & \textcolor{red}{false}\\\hline
+                0 & 4 & (Zulässig, 0.12) & w & [18..29], 20 & \textcolor{red}{true}\\\hline
+            \end{tabularx}
+
+        \item Erklären Sie allgemein was Extremwerte sind und geben Sie ein Beispiel dazu.
+            
+            Vorab möchte ich gerne die umfangreichen Informationen aus der Vorlesung darstellen:
+
+            \begin{itemize}
+                \item Minimal zulässige Zahlenwerte
+                \item Maximal zulässige Zahlenwerte (z.Bsp.: INT\_MAX)
+            \end{itemize}
+
+            So gehören zu Extremwerten im generellen Fälle:
+            \begin{enumerate}[label=\alph*.]
+                \item mit einem normalen Ausgang und Extremeingangswerten\\
+                    (Extreme im Sinne von zu hoch oder zu niedrig, zu kurz oder zu lang, zu viel oder zu wenig)
+                \item mit einem abnormalen Ausgang, resultierend aus falschen/ ungültigen/ ungünstigen Eingabewerten
+            \end{enumerate} 
+
+            Die der einzige Parameter, welcher ein wenig künstlerische Freiheit ermöglicht \texttt{alter} ist, welcher zusätzlich in seinem Gültigkeitsintervall ([18..79]) eingeschränkt ist, hat unser Beispiel keine Extremeingangswerte.
+            Zusätzlich kennen wir nicht die genaue Implementierung\footnote{Anbei mal meine Version dieser Methode, zum errechnen der Rückgabewerte von Äquivalenzklassen} der Methode (was ja auch Sinn dieses Black-Box-Tests ist), kann ich keine abnormalen Ausgänge erraten.
+
+            Um jedoch ein gutes, von unserer Miniwelt losgelöstes Beispiel zu geben, habe ich mich auf Methoden mit Strings konzentriert.
+            Hier wären Extremeingangswerte der leere String: \gqq{}, extrem lange Strings (z.B. aus eingelesenen Dateien).
+            Bei Zahlwerten ist dies noch einfacher.
+            Hier wären Extremeingangswerte: \texttt{Integer.MAX\_VALUE}, \texttt{-Integer.MAX\_VALUE} oder \texttt{0.0000000001}.
+
+            Ein ausgearbeitet detailliertes Beispiel wäre demnach:
+            \begin{minted}{java}
+(new Scanner(new File("pi.txt"))).readLine().subString(Integer.MAX_VALUE);
+            \end{minted}
+    \end{enumerate}
+
+    \newpage
+
+    Hier die gegebene Javadoc:
+
+    \begin{minted}{java}
+/**
+* Berechnet den Rabatt auf den Eintrittspreis eines Diskobesuchs
+* Frauen erhalten 5% Rabatt. Sind diese zusätzlich unter 30, werden zusätzliche 2% Rabatt gewährt.
+* Beamte erhalten nochmals 5% Rabatt (unabh. vom Geschlecht).
+*
+* @param geschlecht Wert eines enums mit den Ausprägungen "männlich" und "weiblich" (m/w)
+* @param alter      Das Alter (17 < alter < 80) des Diskobesuchers,
+                    ansonsten wird eine Exception geworfen
+* @param istBeamter Flag, um anzuzeigen, dass der Diskobesucher ein Beamter ist
+* @return           Rabattfaktor (1.0 entsprechen 100% = freier Eintritt,
+                    0.5 entsprechen 50% = halber Eintrittspreis)
+* @throws           Exception in allen weiteren nicht hier spezifizierten Fällen
+*/
+public double berechneRabatt(GESCHLECHT geschlecht, int alter, boolean istBeamter){}
+    \end{minted}
+
+    Hier der dazugehörende Output:
+
+    \VerbatimInput{out.txt}
+
+    \newpage
+
+    Und hier meine (dank Black-Box-Test bis zum Schluss verschlossene) Implementierung:
+    
+    \inputminted{java}{Diskobesuch.java}
+
+\end{document}

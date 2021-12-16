@@ -1,0 +1,8 @@
+(männlich, 20) ist kein Beamter; Rabatt: 0.0
+(männlich, 20) ist Beamter;      Rabatt: 0.05
+(weiblich, 20) ist Beamter;      Rabatt: 0.12
+(weiblich, 20) ist kein Beamter; Rabatt: 0.07
+(weiblich, 79) ist Beamter;      Rabatt: 0.1
+(weiblich, 79) ist kein Beamter; Rabatt: 0.05
+(männlich, 79) ist Beamter;      Rabatt: 0.05
+(männlich, 79) ist kein Beamter; Rabatt: 0.0
