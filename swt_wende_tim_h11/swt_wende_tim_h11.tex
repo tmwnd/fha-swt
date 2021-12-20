@@ -84,7 +84,7 @@
                 \bigcup_{a \in \mathrm{AK}} a = \Omega
             \]
 
-            \subsubsection*{Regulärfälle (\texttt{@return \textcolor{orange}{int} $\in \{0.0, 0.05, 0.07, 0.1, 0.12\}$})}
+            \subsubsection*{Regulärfälle (\texttt{@return \textcolor{orange}{double} $\in \{0.0, 0.05, 0.07, 0.1, 0.12\}$})}
             
             \begin{tabularx}{\textwidth}{|p{3em}|p{3em}|X|p{7em}|p{5em}|p{7em}|p{5em}|}
                 \hline
@@ -115,7 +115,7 @@
 
             Da es sich bei \texttt{alter} als einziges um eine geordnete sortierbare Menge an Werten handelt, folgt nun die Grenzwertbetrachtung dieses Attributs.
             Wenn man eine unsortierte Liste von 3, respektive 2, Elementen vorliegen hat, ist eine GW-Betrachtung sinnlos bis hin zu nicht möglich (bzgl. \texttt{geschlecht}).
-            Selbiges gilt bei \texttt{alter}; Hier kann man sich jedoch streiten, ob es sich um zwei Zeichenketten ("true", "false") oder um Zahlwerte (0, 1) handelt.
+            Selbiges gilt bei \texttt{istBeamter}; Hier kann man sich jedoch streiten, ob es sich um zwei Zeichenketten ("true", "false") oder um Zahlwerte (0, 1) handelt.
             Im zweiten Fall wäre eine GW-Betrachtung möglich, jedoch auf solch einem Intervall nicht aussagekräftig, da jeder vorhandene Wert ein GW wäre.\\
 
             \begin{tabularx}{\textwidth}{|p{3em}|p{3em}|X|p{5em}|p{7em}|p{5em}|}
@@ -134,8 +134,8 @@
             \footnote{
                 Nach meinem Verständnis sind Sonderfälle stark verwandt mit Extremfällen.
                 (\href{https://www.google.com/search?q=sonderfall+extremfall+synonym}{Böse Zungen} behaupten sogar, diese seien Synonyme)
-                Als Sonderfall verstehe ich Äquivalenzklassen, welche in ihrer häufigkeit des Auftretens oder besonderheit der Rückgabe auffallen.
-                So würde man besonders seltene oder häifig auftretende Klassen hier besonders erwähnen.
+                Als Sonderfall verstehe ich Äquivalenzklassen, welche in ihrer Häufigkeit des Auftretens oder besonderheit der Rückgabe auffallen.
+                So würde man besonders seltene oder häufig auftretende Klassen hier besonders erwähnen.
                 Da dies jedoch nicht der Fall ist, da die Parameter ungefähr gleichverteillt aufteten und das daraus resultierende Ergebnis meist in einem sehr überschaubaren Rahmen liegt, versuche ich mich an dieser Betrachtung unter erschwerten Umständen.
                 Man könnte einen Zusammenhang aus Höhe des Rabattes und größe der Menschengruppe herstellen, die diesen Rabatt erhält, jedoch ist mir hier die Datenlage zu ungenau bzw. zu sporadisch.
                 Sollte dies jedoch das erwünschte Ergebnis sein, unterstelle ich dem Disco-Betreibenden, dass er $\approx$ 50\% aller KundInnen keinen Rabatt und nur einer minimalen Menge an Kunden den Höchstsatz von 12\% Rabatt ermöglicht.
@@ -148,7 +148,7 @@
             
             \begin{tabularx}{\textwidth}{|p{3em}|p{3em}|X|p{5em}|p{7em}|p{5em}|}
                 \hline
-                \cellcolor[gray]{0.75} & \cellcolor[gray]{0.75} & \cellcolor[gray]{0.75} & \multicolumn{3}{c|}{\cellcolor[gray]{0.75} \textbf{Randwerte}}\\
+                \cellcolor[gray]{0.75} & \cellcolor[gray]{0.75} & \cellcolor[gray]{0.75} & \multicolumn{3}{c|}{\cellcolor[gray]{0.75} \textbf{Sonderfall}}\\
                 \multirow{-2}{*}{\cellcolor[gray]{0.75} \textbf{ÄK}} & \multirow{-2}{*}{\cellcolor[gray]{0.75} \textbf{RF}} & \multirow{-2}{*}{\cellcolor[gray]{0.75} \textbf{Typ}} & \cellcolor[gray]{0.75} geschlecht & \cellcolor[gray]{0.75} alter & \cellcolor[gray]{0.75} istBeamter\\\hline  
                 0 & 0 & (Zulässig, 0.0) & m, d & [18..79], 20 & \textcolor{red}{false}\\\hline
                 0 & 4 & (Zulässig, 0.12) & w & [18..29], 20 & \textcolor{red}{true}\\\hline
